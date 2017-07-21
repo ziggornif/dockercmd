@@ -1,0 +1,24 @@
+{
+  "name": "dockercmd",
+  "version": "0.0.1",
+  "description": "Use docker functions in your javascript code ",
+  "main": "app.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ziggornif/dockercmd.git"
+  },
+  "keywords": [
+    "docker",
+    "cmd",
+    "tool"
+  ],
+  "author": "Matthieu Drouian <matthieudrouian@gmail.com> (https://github.com/Ziggornif)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ziggornif/dockercmd/issues"
+  },
+  "homepage": "https://github.com/Ziggornif/dockercmd#readme"
+}
