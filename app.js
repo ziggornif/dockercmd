@@ -26,7 +26,7 @@ exports.ps_all = () => {
     });
 }
 
-exports.stats = (container_id) => {
+exports.stats = container_id => {
     return new Promise((resolve, reject) => {
         childProcess.exec('docker stats --no-stream --format "{{.Container}}{blank}{{.CPUPerc}}{blank}{{.MemUsage}}{blank}{{.MemPerc}}{blank}{{.NetIO}}{blank}{{.BlockIO}}" | grep ' + container_id, (err, stdout) => {
             if (err) {
@@ -81,27 +81,49 @@ exports.images = () => {
     });
 }
 
-exports.rm = (container_id) => {
+exports.rm = container_id => {
     return new Promise((resolve, reject) => {
         childProcess.exec('docker rm ' + container_id, (err, stdout) => {
             if (err) {
                 reject(err);
             } else {
-                console.log(stdout);
                 resolve();
             }
         });
     });
 }
 
-exports.rmi = (image_id) => {
+exports.rmi = image_id => {
     return new Promise((resolve, reject) => {
         childProcess.exec('docker rmi ' + image_id, (err, stdout) => {
             if (err) {
                 reject(err);
             } else {
-                console.log(stdout);
                 resolve();
+            }
+        });
+    });
+}
+
+exports.start = container_id => {
+    return new Promise((resolve, reject) => {
+        childProcess.exec('docker start ' + container_id, (err, stdout) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(stdout);
+            }
+        });
+    });
+}
+
+exports.stop = container_id => {
+    return new Promise((resolve, reject) => {
+        childProcess.exec('docker stop ' + container_id, (err, stdout) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(stdout);
             }
         });
     });
