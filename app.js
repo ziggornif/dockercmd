@@ -1,6 +1,6 @@
 const childProcess = require('child_process');
 
-exports.ps_all = () => {
+exports.ps = () => {
     return new Promise((resolve, reject) => {
         childProcess.exec('docker ps -a --format "{{.ID}}{blank}{{.Ports}}{blank}{{.Image}}{blank}{{.CreatedAt}}{blank}{{.Status}}"', (err, stdout) => {
             if (err) {
